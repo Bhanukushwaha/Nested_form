@@ -1,0 +1,84 @@
+<% resource = User.new %>
+<%= form_for(resource, as: resource,remote: true, url: registration_path(resource), :html => {:id => "signup_form"}) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="form-group">
+  	<label for="recipient-name" class="col-form-label">Enter your Email:</label>
+    <div id="email_error" style="color: red;" ></div>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "Enter your Email" %>    
+  </div>
+
+  <div class="form-group">
+    <label for="recipient-name" class="col-form-label">Enter your Password:</label>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+  	<label for="recipient-name" class="col-form-label">password_confirmation:</label>
+    <div id="sign_up_error" style="color: red;" ></div>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.submit "Sign up" , class: "btn btn-success  btn-block"%>
+  </div>
+<% end %>
+
+
+<script>
+  $(document).ready(function() {
+  $("#signup_form").validate({
+      rules:{
+        'user[first_name]':
+        {
+          required: true,
+        },
+        'user[last_name]':
+        {
+          required: true,
+        },
+        'user[email]':
+        {
+          required: true,
+          // checkEmail: true
+        },
+        'user[password]':
+        {
+          required: true,
+          // checkUsername: true
+        },
+        'user[password_confirmation]':
+        {
+          required: true,
+          // checkPassword: true
+        },
+      },messages:{
+        'user[first_name]':{
+          required: "<p class='inline-errors'>Please enter first name</p>",
+        },
+        'user[last_name]':{
+          required: "<p class='inline-errors'> Please enter last name</p>",
+        },
+        'user[email]':{
+          required: "<p class='inline-errors'>Please enter email</p>",
+          // checkEmail: "<p class='inline-errors'>Please enter a valid email address.</p>"
+        },
+        'user[password]':{
+          required: "<p class='inline-errors'>Please enter password</p>",
+        },
+        'user[password_confirmation]':{
+          required: "<p class='inline-errors'>Please enter conform password</p>",
+        }
+      }
+    });
+  });
+</script>
+
+<style>
+ .inline-errors{
+  color: red;
+ }
+</style>

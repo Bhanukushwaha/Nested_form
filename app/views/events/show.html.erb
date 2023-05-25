@@ -1,0 +1,20 @@
+<p style="color: green"><%= notice %></p>
+
+<div id="<%= dom_id @event %>">
+  <p>
+    <strong>Title:</strong>
+    <%= @event.title %>
+  </p>
+
+  <p>
+    <strong>Description:</strong>
+    <%= @event.description %> 
+  </p>
+</div>
+
+<div>
+  <%= link_to "Edit this event", edit_event_path(@event) %> |
+  <%= link_to "Back to events", events_path %>
+</div>
+
+

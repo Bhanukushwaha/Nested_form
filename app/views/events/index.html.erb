@@ -1,0 +1,79 @@
+<p style="color: green"><%= notice %></p>
+<table id="myTable">
+  <tr class="header">
+    <th>No</th>
+    <th>Title</th>
+    <th>Description</th>
+    <th colspan="3">Action</th>
+  </tr>
+  <tbody>
+    <% @events.each_with_index do |event, sindex| %>
+      <tr>
+       <td><%= sindex+1 %></td>
+       <td><%= event.title %></td> 
+       <td><%= event.description %></td>
+       <td><%= link_to "Show", event, remote: true ,class: "btn btn-outline-primary"%></td>
+       <td><%= link_to "Edit", edit_event_path(event),remote: true ,class: "btn btn-outline-success"%></td>
+       <td><%= button_to "Destroy", event, method: :delete %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table><br>
+<%= link_to "New event", new_event_path,remote: true , class: "btn btn-outline-success" %>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">New Event</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</spanf>
+        </button>
+      </div>
+      <div class="modal-body">        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Close</button>
+         <%= link_to "Back to events", events_path ,class: "btn btn-primary" %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+#myInput {
+  background-image: url('/css/searchicon.png');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  width: 70%;
+  border-radius: 10px;
+  font-size: 16px;
+  padding: 12px 20px 8px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 14px;
+}
+
+#myTable {
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid #ddd;
+  font-size: 16px;
+}
+
+#myTable th, #myTable td {
+  text-align: left;
+  padding: 5px;
+}
+
+#myTable tr {
+  border-bottom: 1px solid #ddd;
+}
+
+#myTable tr.header, #myTable tr:hover {
+  background-color: #f1f1f1;
+}
+</style>
+

@@ -1,0 +1,58 @@
+<div class="modal fade" id="exampleModalLong2" tabindex="-1" role="dialog" aria-labelledby="eModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>        
+      </div>
+      
+      <div class="modal-body">
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+          <%= link_to "Sign in", sign_in_path, remote: true, role: "tab", class: "btn btn-light nav-item nav-link active", id: "SignIn" %>
+          <%= link_to "Sign up", sign_up_path, remote: true, id: "nav-contact-tab", role: "tab", class: "nav-item nav-link" %>
+          <%= link_to "Forgot your password?", forgot_password_path, remote: true, id: "forgot-password", class: "nav-item nav-link" %>
+        </div>
+		    <div class="tab-content" id="nav-tabContent">  
+          <div id= "sing-in-container">
+             <%= render :partial =>  "devise/sessions/form", user: @user %>
+          </div>
+           <div id="sing-up-container"></div>
+           <div id="forword_modal" ></div>  
+		    </div>
+      </div>
+      <div class="modal-footer">        
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>        
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  $('#SignIn').click(function(){
+    var sign_link = document.getElementById('SignIn');
+    var sign_up_link = document.getElementById('nav-contact-tab');
+    var fogot_link = document.getElementById('forgot-password');
+    sign_link.setAttribute('class', 'btn btn-light nav-item nav-link active');
+    sign_up_link.setAttribute('class', 'nav-item nav-link');
+    fogot_link.setAttribute('class', 'nav-item nav-link');
+
+  });
+  $('#nav-contact-tab').click(function(){
+    var sign_link = document.getElementById('SignIn');
+    var sign_up_link = document.getElementById('nav-contact-tab');
+    var fogot_link = document.getElementById('forgot-password');
+    sign_link.setAttribute('class', 'nav-item nav-link');
+    fogot_link.setAttribute('class', 'nav-item nav-link');
+    sign_up_link.setAttribute('class', 'btn btn-light nav-item nav-link active');
+  });
+  $('#forgot-password').click(function(){
+    var sign_link = document.getElementById('SignIn');
+    var sign_up_link = document.getElementById('nav-contact-tab');
+    var fogot_link = document.getElementById('forgot-password');
+    sign_link.setAttribute('class', 'nav-item nav-link');
+    sign_up_link.setAttribute('class', 'nav-item nav-link');
+    fogot_link.setAttribute('class', 'btn btn-light nav-item nav-link active');
+  });
+</script>
+

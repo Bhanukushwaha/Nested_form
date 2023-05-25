@@ -1,0 +1,4 @@
+$("#sing-up-container").html("<%= escape_javascript(render "devise/registrations/form", locals: { resource: @user}) %>");
+$("#sing-in-container").hide();
+$("#sing-up-container").show();
+$("#forword_modal").hide();
