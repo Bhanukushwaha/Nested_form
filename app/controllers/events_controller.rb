@@ -15,7 +15,7 @@ class EventsController < ApplicationController
   def new
     @event = Event.new
     # @event.build_venue
-    # 1.times { @event.venues.build }
+    1.times { @event.venues.build }
     1.times { @event.planner.build }
   end
 

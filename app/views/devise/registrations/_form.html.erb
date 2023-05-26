@@ -31,15 +31,7 @@
 <script>
   $(document).ready(function() {
   $("#signup_form").validate({
-      rules:{
-        'user[first_name]':
-        {
-          required: true,
-        },
-        'user[last_name]':
-        {
-          required: true,
-        },
+      rules:{        
         'user[email]':
         {
           required: true,
@@ -55,13 +47,7 @@
           required: true,
           // checkPassword: true
         },
-      },messages:{
-        'user[first_name]':{
-          required: "<p class='inline-errors'>Please enter first name</p>",
-        },
-        'user[last_name]':{
-          required: "<p class='inline-errors'> Please enter last name</p>",
-        },
+      },messages:{        
         'user[email]':{
           required: "<p class='inline-errors'>Please enter email</p>",
           // checkEmail: "<p class='inline-errors'>Please enter a valid email address.</p>"
