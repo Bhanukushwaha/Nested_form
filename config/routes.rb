@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
+  get 'friends/index'
+  get 'friends/edit'
+  get 'friends/show'
   resources :students
+  get "add_friend" => "students#add_friend"
+  get "delete_request", to: "students#delete_request"
+  get 'my_request', to: "students#my_request"
+  get 'accepted_request', to: "students#accepted_request"
+  get 'friend_list', to: 'friends#friend_list' 
   devise_for :users, controllers: {sessions: "users/sessions", :registrations => "users/registrations", :passwords => "users/passwords"}
   get "index", to: "homes#index"
   get 'sign_in' => "homes#sign_in"

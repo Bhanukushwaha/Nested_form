@@ -3,6 +3,19 @@
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="form-group">
+    <label for="recipient-name" class="col-form-label">Enter your First Name:</label>
+    <div id="email_error" style="color: red;" ></div>
+    <%= f.text_field :first_name, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "Enter your Frist_name" %>    
+  </div>
+
+  <div class="form-group">
+    <label for="recipient-name" class="col-form-label">Enter your Last_name:</label>
+    <div id="email_error" style="color: red;" ></div>
+    <%= f.text_field :last_name, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "Enter your Last_name" %>    
+  </div>
+
+
+  <div class="form-group">
   	<label for="recipient-name" class="col-form-label">Enter your Email:</label>
     <div id="email_error" style="color: red;" ></div>
     <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "Enter your Email" %>    

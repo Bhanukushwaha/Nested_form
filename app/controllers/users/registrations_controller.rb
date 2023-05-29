@@ -14,7 +14,7 @@ module Users
          if (params[:user][:password] != params[:user][:password_confirmation])
           @error = {message: "password does not match?", email: false }
          else
-          user = User.new(email: params[:user][:email],password: params[:user][:password],password_confirmation: params[:user][:password_confirmation])
+          user = User.new(first_name: params[:user][:first_name],last_name: params[:user][:last_name],email: params[:user][:email],password: params[:user][:password],password_confirmation: params[:user][:password_confirmation])
             if user.save
               @valid = true
               sign_in(user)
