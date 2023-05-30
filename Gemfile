@@ -76,3 +76,5 @@ gem 'bootstrap-sass'
 gem 'jquery-rails'
 gem 'sass-rails'
 gem "letter_opener", group: :development
+gem 'jquery-ui-rails'
+gem 'turbolinks'

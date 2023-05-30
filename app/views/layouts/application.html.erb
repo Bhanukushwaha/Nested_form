@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+
     <%= javascript_include_tag  'application', 'data-turbolinks-track': 'reload' %>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" >
@@ -36,9 +38,9 @@
             </li>     
           <% end %>
         </ul>
-        <ul class="navbar-nav my-2 my-lg-0">        
+        <ul class="navbar-nav my-2 my-lg-0">      
           <% if user_signed_in? %>
-          <li class="nav-item active">          
+          <li class="nav-item active">    
             <strong class="nav-link"><%= current_user.email %></strong>
           </li>
           <%= link_to "Logout", destroy_user_session_path, class: "nav-link", method: :delete %>

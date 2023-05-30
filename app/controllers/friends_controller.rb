@@ -1,4 +1,4 @@
-  class FriendsController < ApplicationController
+class FriendsController < ApplicationController
   def index
   end
 
@@ -7,8 +7,7 @@
 
   def show
   end
-  def friend_list    
+  def friend_list
     @friends = current_user.receive_requests.where(is_accept: true)
-  end
-  
+  end  
 end
