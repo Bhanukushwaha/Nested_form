@@ -37,6 +37,8 @@ class StudentsController < ApplicationController
   def accepted_request
     @frind = Friend.where(sender_id: params[:sender_id], receiver_id: params[:receiver_id]).last
     @frind.update(is_accept: true)
+    # room = params[:sender_id] + params[:receiver_id]
+    @room = Room.create(sender_id: params[:sender_id], receiver_id: params[:receiver_id])
     redirect_to students_path
    end
 

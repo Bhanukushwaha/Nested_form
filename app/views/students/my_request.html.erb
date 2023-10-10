@@ -8,19 +8,21 @@
 		</tr>
 	</thead>
 	<tbody>
-	  <% @receive.each do |rec_request| %>	  
-		  <tr>
-				<td><%= rec_request&.sender&.first_name %></td>
-				<td><%= rec_request&.sender&.last_name %></td>
-				<td><%= link_to "Delete request", delete_request_path(receiver_id: current_user.id, sender_id: rec_request.sender.id, cancel_request: true),class: "btn btn-outline-danger" %></td>
-				<td>
-					<% if rec_request.is_accept %>
-					 <a href="#" class="btn btn-outline-success " >Friend</a>
-					<% else %>
-					 <%= link_to "Accepted_request", accepted_request_path(receiver_id: current_user.id, sender_id: rec_request.sender.id) ,class: "btn btn-outline-success"%>
-					<% end %>
-				</td>
-		  </tr>
+	  <% @receive.each do |rec_request| %>
+		  <% if rec_request.is_accept != true %>	
+			  <tr>
+					<td><%= rec_request&.sender&.first_name %></td>
+					<td><%= rec_request&.sender&.last_name %></td>
+					<td><%= link_to "Delete request", delete_request_path(receiver_id: current_user.id, sender_id: rec_request.sender.id, cancel_request: true),class: "btn btn-outline-danger" %></td>
+					<td>
+						<% if rec_request.is_accept %>
+						 <a href="#" class="btn btn-outline-success " >Friend</a>
+						<% else %>
+						 <%= link_to "Accepted_request", accepted_request_path(receiver_id: current_user.id, sender_id: rec_request.sender.id) ,class: "btn btn-outline-success"%>
+						<% end %>
+					</td>
+			  </tr>
+			<% end %>
 	  <% end %>
 	</tbody>
 </table>

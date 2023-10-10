@@ -1,6 +1,6 @@
 <% resource = User.new %>
 <%= form_for(resource, as: resource,remote: true , url: session_path(resource),:html => {:id => "login_form"}) do |f| %>
-<div class="form-group">
+  <div class="form-group">
     <label for="recipient-name" class="col-form-label">Enter your Email:</label>
     <div id="sign_in_error" style="color: red"></div>
     <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "Enter your Email" %>

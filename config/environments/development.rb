@@ -70,5 +70,5 @@ config.hosts << "773c-103-153-208-74.ngrok-free.app"
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
   config.action_mailer.delivery_method = :letter_opener
-config.action_mailer.perform_deliveries = true
+  config.action_mailer.perform_deliveries = true
 end

@@ -9,13 +9,14 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
 
     <%= javascript_include_tag  'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" >
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>    
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> 
     <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
   </head>
-  <body>    
+  <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -24,18 +25,21 @@
         <a class="navbar-brand" href="#">Nested Form</a>
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
           <li class="nav-item active">                       
-            <a class="nav-link" href="/students">Students</a>            
+            <a class="nav-link" href="/students">User</a>            
           </li>          
           <% if user_signed_in? %>            
-            <li class="nav-item active">          
+            <li class="nav-item active">       
               <a class="nav-link" href="/">Events</a>              
             </li>  
-            <li class="nav-item active">          
+            <li class="nav-item active">      
               <a class="nav-link" href="/my_request">My_request</a>           
             </li>
             <li class="nav-item active">          
               <a class="nav-link" href="/friend_list">Friends</a>           
-            </li>     
+            </li> 
+            <li class="nav-item active">          
+              <a class="nav-link" href="/message">Message</a>           
+            </li>
           <% end %>
         </ul>
         <ul class="navbar-nav my-2 my-lg-0">      
@@ -61,5 +65,13 @@
   body{
     background-image:url('/assets/phone.jpg'); 
     background-size : cover;        
+  }
+  <%= ".msg-#{current_user&.id}" %> {
+  background-color: #007bff !important;
+  padding: 10px;
+  }
+  <%= ".cont-#{current_user&.id}" %> {
+  display: flex;
+  justify-content: flex-end
   }
 </style>

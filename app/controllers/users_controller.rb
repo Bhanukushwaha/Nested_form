@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-def reset_password
+  def reset_password
     @user = User.find_by_id(params[:id])
   end
 

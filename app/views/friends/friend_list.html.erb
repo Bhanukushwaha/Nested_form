@@ -5,13 +5,15 @@
     <th>First_name</th>
     <th>Last_Name</th>
     <th>email</th>
+    <th></th>
   </tr>
   <tbody>
     <% @friends.each do |friend| %>
       <tr>
         <td><%= friend.sender.first_name %></td> 
         <td><%= friend.sender.last_name %></td>       
-        <td><%= friend.sender.email %></td>       
+        <td><%= friend.sender.email %></td> 
+         <td><%= link_to "Send Message", message_path(sender_id: current_user.id, receiver_id: friend.id),class: "btn btn-outline-danger" %> </td>      
       </tr>
     <% end %>
   </tbody>

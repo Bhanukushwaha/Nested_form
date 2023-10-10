@@ -9,21 +9,20 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
-        <td><%= user.first_name %></td> 
-        <td><%= user.last_name %></td>       
-        <td><%= user.email %></td>       
+        <td><%= user.first_name %></td>
+        <td><%= user.last_name %></td>   
+        <td><%= user.email %></td>
         <td>
           <% if Friend.where(receiver_id: user.id, sender_id: current_user.id).present? %>
-            <%= link_to "Delete request", delete_request_path(sender_id: current_user.id, receiver_id: user.id),class: "btn btn-outline-danger" %>
+            <%= link_to "Remove", delete_request_path(sender_id: current_user.id, receiver_id: user.id),class: "btn btn-outline-danger" %>
           <% else %>
             <%= link_to "Send request", add_friend_path(sender_id: current_user.id, receiver_id: user.id),class: "btn btn-outline-success " %>
-           <% end %> 
+           <% end %>
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
 
 <style>
 * {
