@@ -22,3 +22,8 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+Error connecting to Redis on localhost:6379 (Errno::ECONNREFUSED)
+1. sudo apt update
+sudo apt install redis-server
+2. sudo systemctl start redis
+3. redis-cli ping
